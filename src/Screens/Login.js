@@ -117,7 +117,7 @@ function Login() {
         }
 
         <div className={classes.signUpButton}>
-        <button className={classes.LoginButton} onClick={() => LoginAPI()} type="submit">Login</button>
+        <button className={classes.LoginButton} onClick={() => SignUpValidation()} type="submit">Login</button>
         </div>
       </div>
       </div>
