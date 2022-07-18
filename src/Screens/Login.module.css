@@ -21,7 +21,8 @@
     margin: auto;
 }
 .loader{
-    color: #fff;
+    justify-content: center;
+    display: flex;
 }
 .heading{
     color: #fff;
