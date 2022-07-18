@@ -96,6 +96,7 @@ function Login() {
             placeholder={"Enter Email"}
             type="text"
             value={email}
+            onInput={() => { error.email = " " }}
             onChange={(e) => setEmail(e.target.value)}
           />
         <div className={classes.inputAreaLevel}>Password<div className={classes.error_message}>{error.password}</div></div>
@@ -104,6 +105,7 @@ function Login() {
             placeholder={"Password"}
             type="password"
             value={password}
+            onInput={() => { error.password = " " }}
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className={classes.checkBoxContainer}>
