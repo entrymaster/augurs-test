@@ -35,6 +35,12 @@
     flex-direction: row;
     font-weight: 500;
 }
+.error_message {
+    color: rgb(250, 0, 0);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
 .inputArea{
     padding: 10px 10px;
     outline: none;
