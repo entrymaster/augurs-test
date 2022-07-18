@@ -26,7 +26,8 @@
     font-weight: 500;
 }
 .loader{
-    color: #fff;
+    justify-content: center;
+    display: flex;
 }
 .inputAreaLevel{
     color: #fff;

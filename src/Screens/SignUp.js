@@ -2,7 +2,7 @@
 import React from 'react';
 import classes from './SignUp.module.css';
 import { AiOutlineUserAdd } from "react-icons/ai";
-
+import {TailSpin} from 'react-loader-spinner';
 
 const SignUp = () => {
   const [email, setEmail] = React.useState('');
@@ -154,14 +154,22 @@ const SignUp = () => {
           />
           <div className={classes.checkBoxText}>Remember Me</div>
         </div>
-        {
-          loading && <div className={classes.loader}>Loading ...</div>
-        }
+        <div className={classes.loader}></div>
+        
+          <div className={classes.signUpButton}>
+          <button className={classes.LoginButton} onClick={() => !loading && SignUpValidation()} type="submit">
+            {
+              loading ?
+            <div className={classes.loader}>
+              <TailSpin height={15} width={15} color='#fff' ariaLabel="loading" />
+            </div>
+          :
+          'Sign Up'}</button>
+        </div>
+
         
                       
-        <div className={classes.signUpButton}>
-          <button className={classes.LoginButton} onClick={() => SignUpValidation()} type="submit">Sign Up</button>
-        </div>
+        
       </div>
     </div>
     // </div>

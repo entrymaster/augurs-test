@@ -1,6 +1,7 @@
 
 import React from 'react';
 import classes from './Login.module.css';
+import {TailSpin} from 'react-loader-spinner';
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 
@@ -12,7 +13,7 @@ function Login() {
   const [error, setError] = React.useState({});
 
 
-  const SignUpValidation = () =>{
+  const LogInValidation = () =>{
     let errors = {};
     let isValid = true;
     
@@ -114,12 +115,17 @@ function Login() {
              />
              <div className={classes.checkBoxText}>Remember Me</div>
           </div>
-          {
-          loading && <div className={classes.loader}>Loading ...</div>
-        }
 
         <div className={classes.signUpButton}>
-        <button className={classes.LoginButton} onClick={() => SignUpValidation()} type="submit">Login</button>
+        <button className={classes.LoginButton} onClick={() => !loading && LogInValidation()} type="submit">
+        {
+              loading ?
+            <div className={classes.loader}>
+              <TailSpin height={15} width={15} color='#fff' ariaLabel="loading" />
+            </div>
+          :
+          'Login'}
+        </button>
         </div>
       </div>
       </div>
