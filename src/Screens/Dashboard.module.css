@@ -1,0 +1,62 @@
+.mainContainer{
+    padding: 20px;
+    background-color: #ebeceb;
+    height: 95vh;
+}
+.inputConatiner{
+    padding: 6px;
+    outline: none;
+    width: 35%;
+    font-size: 16px;
+}
+.error_message {
+    color: rgb(250, 0, 0);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+.inputSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bsSearch{
+    padding-left: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.boxSection{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 12px;
+}
+.OrderListSection{
+    padding: 20px;
+}
+.noDataContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    color: red;
+}
+@media screen and (max-width: 1023px) {
+    .boxSection{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 10px;
+        margin-top: 12px;
+        height: auto;
+    }
+    .mainContainer{
+        padding: 0px;
+        margin-top: 20px;
+    }
+    .inputConatiner{
+        padding: 6px;
+        outline: none;
+        width: 70%;
+    }
+}
