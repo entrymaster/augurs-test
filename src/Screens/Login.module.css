@@ -1,5 +1,5 @@
 .mainContainer{
-    background-color: #0D3127;
+    background-color: #ebeceb;
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -9,12 +9,12 @@
     padding: 2rem;
     display: block;
     border-radius: 5px;
-    /* background: rgb(37,104,84); */
-    background: linear-gradient(rgba(37,104,84,1) 0%, rgba(13,49,39,1) 100%);
+    margin: auto;
+    background: linear-gradient(#ebecf0 0%, #BEBEBE 100%);
 }
 .userIcon{
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid #464646;
     border-radius: 50%;
     width: 35px;
     padding: 10px;
@@ -25,13 +25,12 @@
     display: flex;
 }
 .heading{
-    color: #fff;
-    font-size: 16px;
+    color: #464646;
     font-weight: 500;
 }
 .inputAreaLevel{
-    color: #fff;
-    font-size: 16px;
+    color: #616161;
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     font-weight: 500;
@@ -53,8 +52,8 @@
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    color: #fff;
-    background-color: #0D3127;
+    /* color: #fff; */
+    background-color: #ebecf0;
 }
 .inputArea::placeholder{
     font-size: 14px;
@@ -65,26 +64,25 @@
     color: gray;
     border: 1px solid #187498;
 }
-.checkBoxContainer{
-    display: flex;
-    align-items: center;
-}
-.checkBoxText{
-    color: #fff;
-}
+
 .LoginButton{
-    padding: 6px 10px;
+    padding: 10px 15px;
     background-color: #276955;
-    width: 50px;
+    width: 70px;
+    font-size: 16px;
     text-align: center;
     margin: 14px 5px;
     color: #fff;
     border-radius: 4px;
     border: 0px;
 }
+.LoginButtonContainer{
+    display: flex;
+    justify-content: center;
+}
 @media screen and (min-width: 1024px) {
     .formContainer{
-        width: 35%;
+        width: 30%;
         display: block;
         margin: auto;
     }

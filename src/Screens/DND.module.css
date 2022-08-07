@@ -1,0 +1,32 @@
+.mainContainer{
+    display: flex;
+    padding: 20px;
+    
+}
+.loader{
+    position: absolute;
+    right: 800px;
+    /* background-color: grey; */
+}
+.dragZone{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dropZone{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imageCont{
+    padding: 10px;
+    /* background-color: red; */
+}
+.dragImage{
+    
+}
+.mainImg{
+    /* height: 60%; */
+}

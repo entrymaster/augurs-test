@@ -2,13 +2,19 @@
 import React from 'react';
 import classes from './Login.module.css';
 import {TailSpin} from 'react-loader-spinner';
+import { useNavigate } from "react-router-dom";
 
 import { AiOutlineUserAdd } from "react-icons/ai";
 
+const token = "c5jo4E_pSXE:APA91bE288T58fh5W-YdFokgVt-lhIkvMA-Bn56LB5-WECb__Myh179kjC_PWncdiUTOr78iRMv0yVcf0s3cZMxXynxPbzn8xiv3u8V9tSk8MApnbsBHc0pweZz1viBX8D-Hn1D0ByTY"
+
 
 function Login() {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+
+  let navigate = useNavigate();
+
+  const [mobile, setMobile] = React.useState('9689462289');
+  const [password, setPassword] = React.useState('Sachin@123');
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState({});
 
@@ -17,12 +23,12 @@ function Login() {
     let errors = {};
     let isValid = true;
     
-    if (!email || !(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/).test(email)) {
-      errors.email = "Invalid Email !";
+    if (!mobile || !(/^[0-9]{10}$/).test(mobile)) {
+      errors.mobile = "Invalid Mobile !";
       isValid = false;
     }
-    if(!password || !(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/).test(password)){
-      error.password = "Invalid Password !";
+    if(!password || !(/^(?=.*\d).{8,}$/).test(password)){
+      error.password = "Minimum 8 characters and at least 1 number";
       isValid = false;
     }
 
@@ -40,39 +46,26 @@ function Login() {
   const LoginAPI = () => {
     try {
       setLoading(true);
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-
-      var raw = JSON.stringify({
-        "email": email,
-        "password": password
-      });
-
+      var formdata = new FormData();
+      formdata.append("mobileNumber", mobile);
+      formdata.append("password", password);
+      formdata.append("restaurantToken", token);
+      
       var requestOptions = {
         method: 'POST',
-        headers: myHeaders,
-        body: raw,
+        body: formdata,
         redirect: 'follow'
       };
-
-      fetch("http://boatwash.balajeekabachpan.org/public/api/login", requestOptions)
+      
+      fetch("https://cors-anywhere.herokuapp.com/https://brbun.aaratechnologies.in/super_admin/brbun_web_services/brbun_restaurant/restaurantLogin.php", requestOptions)
         .then(response => response.json())
         .then(result => {
-          switch (result.status) {
-            case 0:
-              alert(result.message);
-              break;
-            case 1:
-              alert(result.message.password);
-              break;
-            case 3:
-              alert('Wrong Email or password');
-              break;
-            default:
-              alert('Something unexpected happened !')
-              break;
+          if(result.message === "Restaurant App Login Successful.."){
+            navigate("/dashboard");
           }
-          
+          else if(result.code === 0){
+            alert(result.message)
+          }
         })
         .finally(()=>setLoading(false))
         .catch(error => console.log('error', error));
@@ -87,18 +80,18 @@ function Login() {
       <div className={classes.mainContainer}>
         <div className={classes.formContainer}>
             <div className={classes.userIcon}>
-                <AiOutlineUserAdd size={30} color={'#fff'} />
+                <AiOutlineUserAdd size={30} color={'#464646'} />
             </div>
         <h1 className={classes.heading}>Login</h1>
 
-        <div className={classes.inputAreaLevel}>Email Address<div className={classes.error_message}>{error.email}</div></div>
+        <div className={classes.inputAreaLevel}>Mobile Number<div className={classes.error_message}>{error.mobile}</div></div>
           <input
             className={classes.inputArea}
-            placeholder={"Enter Email"}
+            placeholder={"Enter Mobile"}
             type="text"
-            value={email}
-            onInput={() => { error.email = " " }}
-            onChange={(e) => setEmail(e.target.value)}
+            value={mobile}
+            onInput={() => { error.mobile = " " }}
+            onChange={(e) => setMobile(e.target.value)}
           />
         <div className={classes.inputAreaLevel}>Password<div className={classes.error_message}>{error.password}</div></div>
           <input
@@ -109,14 +102,14 @@ function Login() {
             onInput={() => { error.password = " " }}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className={classes.checkBoxContainer}>
+          {/* <div className={classes.checkBoxContainer}>
             <input
             type={'checkbox'}
              />
              <div className={classes.checkBoxText}>Remember Me</div>
-          </div>
+          </div> */}
 
-        <div className={classes.signUpButton}>
+        <div className={classes.LoginButtonContainer}>
         <button className={classes.LoginButton} onClick={() => !loading && LogInValidation()} type="submit">
         {
               loading ?

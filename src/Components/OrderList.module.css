@@ -1,0 +1,54 @@
+.mainContainer{
+    margin-top: 20px;
+}
+.heading{
+    font-size: 22px;
+    font-weight: 600;
+    border-bottom: 2px solid;
+    width: 100px;
+    margin: 20px 0;
+}
+.orderListContainer{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 13px;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+.oederListSection{
+    width: 35%;
+}
+.status{
+    background-color: yellow;
+    padding: 6px 8px;
+}
+.statusSection{
+    display: flex;
+    justify-content: space-between;
+}
+.textSection{
+    font-size: 16px;
+    font-weight:600 ;
+}
+@media screen and (max-width: 1023px) {
+    .heading{
+        font-size: 22px;
+        font-weight: 600;
+        border-bottom: 2px solid;
+        width: 100px;
+        margin: 20px 0;
+    }
+    .orderListContainer{
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid;
+        padding: 13px;
+        border-radius: 4px;
+        margin-top: 12px;
+        flex-direction: column;
+    }
+    .oederListSection{
+        width: 95%;
+    }
+}

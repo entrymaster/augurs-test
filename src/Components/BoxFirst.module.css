@@ -1,0 +1,30 @@
+.mainContainer{
+    margin-top: 30px;
+}
+.statusSection{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.openStatus{
+    background-color: yellow;
+    border-radius: 4px;
+    margin-left: 20px;
+    padding: 4px 8px;
+}
+.closeStatus{
+    background-color: orangered;
+    border-radius: 4px;
+    margin-left: 20px;
+    padding: 4px 8px;
+    color: #fff;
+}
+.textSection{
+    font-size: 16px;
+    font-weight:600 ;
+}
+@media screen and (max-width: 1023px) {
+    .statusSection{
+       width: 95%;
+    }
+}
